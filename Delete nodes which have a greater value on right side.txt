@@ -1,0 +1,25 @@
+class Solution
+{
+    public:
+    Node *compute(Node *head)
+    {
+        // your code goes here
+        Node* tmp=head;
+        while(tmp->next!=NULL){
+           if(tmp->data<tmp->next->data){
+               tmp->data=tmp->next->data;
+               
+               Node* todelete=tmp->next;
+               tmp->next=tmp->next->next;
+               delete todelete;
+               tmp=head;
+           }else{
+               tmp=tmp->next;
+           }
+            
+        }
+        return head;
+    }
+    
+};
+   
